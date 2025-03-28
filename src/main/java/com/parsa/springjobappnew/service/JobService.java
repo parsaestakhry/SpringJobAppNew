@@ -1,8 +1,10 @@
-package com.parsa.springjobapp.service;
+package com.parsa.springjobappnew.service;
 
 
-import com.parsa.springjobapp.model.jobPost;
-import com.parsa.springjobapp.repository.JobRepository;
+
+
+import com.parsa.springjobappnew.model.JobPost;
+import com.parsa.springjobappnew.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +14,11 @@ import java.util.List;
 public class JobService {
     @Autowired
     private JobRepository jobRepository;
-    public void addJob(jobPost jobPost){
+    public void addJob(JobPost jobPost){
         jobRepository.addJob(jobPost);
     }
 
-    public List<jobPost> getAllJobs(){
+    public List<JobPost> getAllJobs(){
         return jobRepository.getAllJobs();
     }
 

@@ -1,13 +1,15 @@
-package com.parsa.springjobapp.controller;
+package com.parsa.springjobappnew.controller;
 
 
-import com.parsa.springjobapp.model.jobPost;
-import com.parsa.springjobapp.service.JobService;
+import com.parsa.springjobappnew.model.JobPost;
+import com.parsa.springjobappnew.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -18,27 +20,11 @@ public class JobController {
     private JobService jobService;
 
 
-    @RequestMapping({"/", "home"})
-    public String home(){
-        return "home";
-    }
 
-    @RequestMapping("/addjob")
-    public String addJob(){
-        return "addjob";
-    }
-
-
-    @RequestMapping(value = "/handleForm", method = RequestMethod.POST)
-    public String handleForm(jobPost jobPost){
-        jobService.addJob(jobPost);
-        return "success";
-    }
-
-    @RequestMapping(value = "/viewalljobs", method = RequestMethod.GET)
-    public String viewAllJobs(Model model){
-        List<jobPost> jobPosts = jobService.getAllJobs();
-        model.addAttribute("jobPosts", jobPosts);
-        return "viewalljobs";
+    @GetMapping("/jobPosts")
+//    tells spring to return as JSON value
+    @ResponseBody
+    public List<JobPost> getAllJobs(){
+        return jobService.getAllJobs();
     }
 }

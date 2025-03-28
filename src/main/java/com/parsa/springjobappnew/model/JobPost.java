@@ -1,4 +1,4 @@
-package com.parsa.springjobapp.model;
+package com.parsa.springjobappnew.model;
 
 
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
-public class jobPost {
+public class JobPost {
 
     private int postId;
     private String postProfile;
