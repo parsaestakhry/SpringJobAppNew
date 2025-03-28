@@ -22,4 +22,7 @@ public class JobService {
         return jobRepository.getAllJobs();
     }
 
+    public JobPost getJob(int i) {
+        return jobRepository.getJob(i);
+    }
 }

@@ -31,4 +31,13 @@ public class JobRepository {
         jobs.add(jobPost);
         System.out.println(jobs);
     }
+
+    public JobPost getJob(int i) {
+        for (JobPost job:jobs){
+            if (job.getPostId() == i){
+                return job;
+            }
+        }
+        return null;
+    }
 }
