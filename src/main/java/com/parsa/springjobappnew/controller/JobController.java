@@ -27,9 +27,9 @@ public class JobController {
     }
 
 
-    @GetMapping("job/3")
+    @GetMapping("job/{jobId}")
     @ResponseBody
-    public JobPost getJob(){
-        return jobService.getJob(3);
+    public JobPost getJob(@PathVariable("jobId") int jobId){
+        return jobService.getJob(jobId);
     }
 }
