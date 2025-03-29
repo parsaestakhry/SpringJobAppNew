@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class JobController {
 
@@ -31,5 +31,11 @@ public class JobController {
     @ResponseBody
     public JobPost getJob(@PathVariable("jobId") int jobId){
         return jobService.getJob(jobId);
+    }
+
+
+    @PostMapping("addjob")
+    public void addJob(@RequestBody JobPost jobPost){
+        jobService.addJob(jobPost);
     }
 }
