@@ -40,4 +40,29 @@ public class JobRepository {
         }
         return null;
     }
+
+    public JobPost updateJob(JobPost jobPost) {
+        for (JobPost jobPost1: jobs) {
+            if (jobPost1.getPostId() == jobPost.getPostId()) {
+                jobPost1.setPostProfile(jobPost.getPostProfile());
+                jobPost1.setPostId(jobPost.getPostId());
+                jobPost1.setPostDesc(jobPost.getPostDesc());
+                jobPost1.setReqExperience(jobPost.getReqExperience());
+                jobPost1.setPostTechStack(jobPost.getPostTechStack());
+                return jobPost1;
+            }
+        }
+        return null;
+    }
+
+
+    public String deleteJob(int id){
+        for (JobPost jobPost: jobs) {
+            if (jobPost.getPostId() == id) {
+                jobs.remove(jobPost);
+                return "Job with id " + id + " deleted successfully";
+            }
+        }
+        return "Job with id " + id + " not found";
+    }
 }

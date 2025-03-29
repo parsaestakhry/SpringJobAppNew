@@ -38,4 +38,17 @@ public class JobController {
     public void addJob(@RequestBody JobPost jobPost){
         jobService.addJob(jobPost);
     }
+
+    @PutMapping("updatejob")
+    public JobPost updateJob(JobPost jobPost){
+            return jobService.updateJob(jobPost);
+    }
+
+    @DeleteMapping("deletejob/{jobId}")
+    public String deleteJob(@PathVariable("jobId") int jobId){
+        return jobService.deleteJob(jobId);
+    }
+
+
+
 }
